@@ -20,17 +20,29 @@ public class SetUp {
 	 */
 	public static void setUpCalculator(CalculatorFace face) {
 
+		CalcStorage storage = new CalcStorage();
+
 		// delete this line.
-		face.writeToScreen("hello");
-		
-		
+		//face.writeToScreen("hello");
+		for(int i = 0; i<10; i++) {
+			face.addNumberActionListener(i, new numberListener(face, i, storage));
+
+		}
+		face.addPlusMinusActionListener(new PlusMinusListener(face, storage));
+		face.addActionListener('.', new OperatorListener(face, '.', storage));
+		face.addActionListener('+', new OperatorListener(face, '+', storage));
+		face.addActionListener('-', new OperatorListener(face, '-', storage));
+		face.addActionListener('*', new OperatorListener(face, '*', storage));
+		face.addActionListener('/', new OperatorListener(face, '/', storage));
+		face.addActionListener('=', new OperatorListener(face, '=', storage));
+		face.addActionListener('C', new OperatorListener(face, 'C', storage));
 		// add code here that will have the effect of connecting
 		// the given face to your calculator
 		
 		
 	}
 	
-	
+
 	/**
 	 * This main method is for your testing of your calculator.
 	 * It will *not* be used during grading. Any changes you make
