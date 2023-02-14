@@ -2,6 +2,16 @@ package calc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+/**
+ * operatorListener
+ * 
+ * class to add actions to the operators
+ * also does calculations in this class
+ *
+ * @author Abraham Austin
+ * CS 245, Wheaton College
+ * Feb 13, 2023
+*/
 
 public class OperatorListener implements ActionListener {
 
@@ -25,7 +35,12 @@ public class OperatorListener implements ActionListener {
 			}
 			face.writeToScreen(String.valueOf(storage.getText()));
 		}
+		
 		else if(x=='*') {
+			if(storage.isPrev()) {
+				storage.setText(storage.getPrev());
+				storage.resetPrev();
+			}
 			g = Double.parseDouble(storage.getText());
 			if(storage.valueUsed()) {
 				switch(storage.getOperator()) {
@@ -45,6 +60,10 @@ public class OperatorListener implements ActionListener {
 			
 		}
 		else if(x=='+') {
+			if(storage.isPrev()) {
+				storage.setText(storage.getPrev());
+				storage.resetPrev();
+			}
 			g = Double.parseDouble(storage.getText());
 			if(storage.valueUsed()) {
 				switch(storage.getOperator()) {
@@ -64,6 +83,10 @@ public class OperatorListener implements ActionListener {
 		}
 
 		else if(x=='/') {
+			if(storage.isPrev()) {
+				storage.setText(storage.getPrev());
+				storage.resetPrev();
+			}
 			g = Double.parseDouble(storage.getText());
 			if(storage.valueUsed()) {
 				switch(storage.getOperator()) {
@@ -83,6 +106,10 @@ public class OperatorListener implements ActionListener {
 		}
 
 		else if(x =='-'){
+			if(storage.isPrev()) {
+				storage.setText(storage.getPrev());
+				storage.resetPrev();
+			}
 			g = Double.parseDouble(storage.getText());
 			if(storage.valueUsed()) {
 				switch(storage.getOperator()) {
@@ -132,9 +159,8 @@ public class OperatorListener implements ActionListener {
 
 				face.writeToScreen(String.valueOf(answer));
 				storage.resetText();
-				//storage.setText(String.valueOf(answer));
-				storage.resetOperatorValue();
-				storage.setOperator(' ');
+				storage.valueReset();
+				storage.setPrev(String.valueOf(answer));
 
 			}
 			else {

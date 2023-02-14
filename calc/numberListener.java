@@ -4,7 +4,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-
+/**
+ * numberListener
+ * 
+ * class to add actions to the numbers
+ *
+ * @author Abraham Austin
+ * CS 245, Wheaton College
+ * Feb 13, 2023
+*/
 
 public class numberListener implements ActionListener {
 
@@ -18,9 +26,9 @@ public class numberListener implements ActionListener {
 		this.storage = storage;
 
 	}
-	@Override
+	
 	public void actionPerformed(ActionEvent e) {
-
+		storage.resetPrev();
 		for(int i=0; i<10;i++) {
 			if(i==x) {
 				String str = String.valueOf(i);
@@ -29,6 +37,7 @@ public class numberListener implements ActionListener {
 
 			}
 		}
+
 	}
 
 }

@@ -22,8 +22,7 @@ public class SetUp {
 
 		CalcStorage storage = new CalcStorage();
 
-		// delete this line.
-		//face.writeToScreen("hello");
+
 		for(int i = 0; i<10; i++) {
 			face.addNumberActionListener(i, new numberListener(face, i, storage));
 
