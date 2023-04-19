@@ -11,105 +11,36 @@ package calc;
 */
 
 public class CalcStorage {
-	double opValue; //value of the second number
-	String screen; //the first number
-	boolean usedOpValue; // is there a second number
-	char op; // The operator
-	boolean textBool; // is there a first number
-	String prev;//previous operation
-	boolean prevBool;//is there a previous operation
+	private String currentDisplay = "";
+	private Double val = null;
+	private Strategy op = null;
 	
-	public CalcStorage() {
-		screen = "";
-		opValue = 0.0;
-		usedOpValue = false;
-		op = ' ';
-		textBool = false;
-		prev = "";
-		prevBool = false;
+	public String getScreen() {
+		return currentDisplay;
 	}
-	/**
-	 * stores the first number
-	 * @param x passes the current number displayed
-	 */
-	public void setText(String x) {
-		screen = screen.concat(x);
-		textBool = true;
+	public void setScreen(String currentDisplay) {
+		this.currentDisplay = currentDisplay;
 	}
-	/**
-	 * reset the current number to an empty string
-	 */
-	public void resetText() {
-		screen = "";
-		textBool = false;
+	public void addToScreen(String value) {
+		currentDisplay += value;
 	}
-	/**
-	 * gets the current text
-	 * @return returns the current text
-	 */
-	public String getText(){
-		return screen;
+	public void setVal(Double val) {
+		this.val = val;
 	}
-	/**
-	 * checks if the first number has been set
-	 * @return returns true or false if the first number has been set
-	 */
-	public boolean textBool() {
-		return textBool;
+	public void setOp(Strategy op) {
+		this.op = op;
 	}
-	/**
-	 * sets the value of the second number
-	 * @param g the double of the of the second number
-	 */
-	public void setOperatorValue(double g) {
-		opValue = g;
-		usedOpValue = true;
+	public void clear() {
+		currentDisplay = "";
+		val = null;
+		op = null;
 	}
-	/**
-	 * gets the second number
-	 * @return returns the second number
-	 */
-	public double getOperatorValue() {
-		return opValue;
-	}
-	/**
-	 * checks if there is a second number
-	 * @return returns true if there is a second number, false if not
-	 */
-	public boolean valueUsed() {
-		return usedOpValue;
-	}
-	/**
-	 * sets the second Operator value to false
-	 */
-	public void valueReset() {
-		usedOpValue = false;
-	}
-	/**
-	 * sets the operator
-	 * @param h the operator
-	 */
-	public void setOperator(char h) {
-		op = h;
-	}
-	/**
-	 * gets the operator
-	 * @return returns the operator
-	 */
-	public char getOperator() {
-		return op;
-	}
-	public void setPrev(String x) {
-		prev = x;
-		prevBool = true;
-	}
-	public String getPrev() {
-		return prev;
-	}
-	public boolean isPrev() {
-		return prevBool;
-	}
-	public void resetPrev() {
-		prevBool = false;
+	public void perform() {
+		if( val != null && !currentDisplay.isEmpty() && op != null) {
+			double currentValue = Double.parseDouble(currentDisplay);
+			val = op.operate(val,  currentValue);
+			currentDisplay = String.valueOf(val);
+			op = null;
+		}
 	}
 }

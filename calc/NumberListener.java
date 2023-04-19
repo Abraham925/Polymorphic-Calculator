@@ -14,13 +14,13 @@ import java.awt.event.ActionListener;
  * Feb 13, 2023
 */
 
-public class numberListener implements ActionListener {
+public class NumberListener implements ActionListener {
 
 	CalculatorFace face;
 	int x;
 	CalcStorage storage;
 	
-	public numberListener(CalculatorFace face, int x, CalcStorage storage) {
+	public NumberListener(CalculatorFace face, int x, CalcStorage storage) {
 		this.face = face;
 		this.x = x;
 		this.storage = storage;
@@ -28,15 +28,8 @@ public class numberListener implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		storage.resetPrev();
-		for(int i=0; i<10;i++) {
-			if(i==x) {
-				String str = String.valueOf(i);
-				storage.setText(str);
-				face.writeToScreen(storage.getText());
-
-			}
-		}
+		face.writeToScreen(storage.getScreen() + String.valueOf(x));
+		storage.addToScreen(String.valueOf(x));
 
 	}
 
