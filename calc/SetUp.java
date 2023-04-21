@@ -29,10 +29,11 @@ public class SetUp {
 		}
 		face.addActionListener('+', new OperatorListener(face, new Add(), storage));
 		face.addActionListener('-', new OperatorListener(face, new Sub(), storage));
-		face.addActionListener('/', new OperatorListener(face, new Mult(), storage));
-		face.addActionListener('*', new OperatorListener(face, new Div(), storage));
+		face.addActionListener('*', new OperatorListener(face, new Mult(), storage));
+		face.addActionListener('/', new OperatorListener(face, new Div(), storage));
 
-		//face.addActionListener('x', new OperatorListener(face, ))
+		face.addActionListener('=', new EqualsListener(face, storage));
+		face.addActionListener('C', new ClearListener(face, storage));
 		// add code here that will have the effect of connecting
 		// the given face to your calculator
 		

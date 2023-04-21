@@ -1,8 +1,9 @@
 package calc;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class ClearListener {
+public class ClearListener implements ActionListener{
 	CalculatorFace face;
 	CalcStorage storage;
 	
