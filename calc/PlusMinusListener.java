@@ -1,8 +1,9 @@
 package calc;
 
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class PlusMinusListener {
+public class PlusMinusListener implements ActionListener{
 	CalculatorFace face;
 	CalcStorage storage;
 	
@@ -12,6 +13,9 @@ public class PlusMinusListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		
+		double currentValue = Double.parseDouble(storage.getScreen());
+		currentValue = -currentValue;
+		storage.setScreen(String.valueOf(currentValue));
+		//face.writeToScreen(storage.getScreen());
 	}
 }

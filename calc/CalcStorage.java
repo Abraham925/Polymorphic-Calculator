@@ -32,11 +32,12 @@ public class CalcStorage {
 	}
 	public void clear() {
 		currentDisplay = "";
-		val = null;
-		op = null;
+		val = 0.0;
+		op = new NoOperation();
 	}
 	public void perform() {
 		val = op.operate(val, Double.parseDouble(currentDisplay));
+		System.out.println(val);
 		currentDisplay=String.valueOf(val);
 		op = new NoOperation();
 	}

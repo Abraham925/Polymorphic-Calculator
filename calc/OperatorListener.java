@@ -18,6 +18,7 @@ public class OperatorListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		storage.perform();
 		storage.setVal(Double.valueOf(storage.getScreen()));
+		face.writeToScreen(storage.getScreen());
 		storage.setScreen("");
 		storage.setOp(operator);
 	}
