@@ -14,7 +14,12 @@ public class CalcStorage {
 	private String currentDisplay = "";
 	private Double val = 0.0;
 	private Strategy op = new NoOperation();
+	private CalcState state = new NormalState();
 	
+	
+	public void setState(CalcState state) {
+		this.state = state;
+	}
 	public String getScreen() {
 		return currentDisplay;
 	}
@@ -26,7 +31,7 @@ public class CalcStorage {
 	}
 	public void setVal(Double val) {
 		this.val = val;
-	}
+	}	
 	public void setOp(Strategy op) {
 		this.op = op;
 	}
@@ -40,5 +45,9 @@ public class CalcStorage {
 		System.out.println(val);
 		currentDisplay=String.valueOf(val);
 		op = new NoOperation();
+		state = new AfterEqualsState();
+	}
+	public void input(String newNumber) {
+		state.input(this, newNumber);
 	}
 }
