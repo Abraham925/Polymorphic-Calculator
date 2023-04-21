@@ -12,8 +12,8 @@ package calc;
 
 public class CalcStorage {
 	private String currentDisplay = "";
-	private Double val = null;
-	private Strategy op = null;
+	private Double val = 0.0;
+	private Strategy op = new NoOperation();
 	
 	public String getScreen() {
 		return currentDisplay;
@@ -36,11 +36,8 @@ public class CalcStorage {
 		op = null;
 	}
 	public void perform() {
-		if( val != null && !currentDisplay.isEmpty() && op != null) {
-			double currentValue = Double.parseDouble(currentDisplay);
-			val = op.operate(val,  currentValue);
-			currentDisplay = String.valueOf(val);
-			op = null;
-		}
+		val = op.operate(val, Double.parseDouble(currentDisplay));
+		currentDisplay=String.valueOf(val);
+		op = new NoOperation();
 	}
 }

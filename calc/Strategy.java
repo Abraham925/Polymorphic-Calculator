@@ -3,8 +3,17 @@ package calc;
 public interface Strategy {
 	Double operate(Double a, Double b);
 }
+
+class NoOperation implements Strategy{
+	 public Double operate(Double a, Double b) {
+		 
+		 return b;
+	 }
+}
+
  class Add implements Strategy{
 	 public Double operate(Double a, Double b) {
+		 System.out.println("+");
 		 return a + b;
 	 }
  }
