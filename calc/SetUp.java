@@ -24,17 +24,15 @@ public class SetUp {
 
 
 		for(int i = 0; i<10; i++) {
-			face.addNumberActionListener(i, new numberListener(face, i, storage));
+			face.addNumberActionListener(i, new NumberListener(face, i, storage));
 
 		}
-		face.addPlusMinusActionListener(new PlusMinusListener(face, storage));
-		face.addActionListener('.', new OperatorListener(face, '.', storage));
-		face.addActionListener('+', new OperatorListener(face, '+', storage));
-		face.addActionListener('-', new OperatorListener(face, '-', storage));
-		face.addActionListener('*', new OperatorListener(face, '*', storage));
-		face.addActionListener('/', new OperatorListener(face, '/', storage));
-		face.addActionListener('=', new OperatorListener(face, '=', storage));
-		face.addActionListener('C', new OperatorListener(face, 'C', storage));
+		face.addActionListener('+', new OperatorListener(face, new Add(), storage));
+		face.addActionListener('-', new OperatorListener(face, new Sub(), storage));
+		face.addActionListener('/', new OperatorListener(face, new Mult(), storage));
+		face.addActionListener('*', new OperatorListener(face, new Div(), storage));
+
+		//face.addActionListener('x', new OperatorListener(face, ))
 		// add code here that will have the effect of connecting
 		// the given face to your calculator
 		
