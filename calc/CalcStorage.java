@@ -14,10 +14,23 @@ public class CalcStorage {
 	private String currentDisplay = "";
 	private Double val = 0.0;
 	private Strategy op = new NoOperation();
-	private CalcState state = new NormalState();
+	private EqualStates state = new NormalState();
+	private DecimalStates decimalState = new NoDecimalState();
+	private PlusMinusStates plusminus = new Positive();
 	
-	
-	public void setState(CalcState state) {
+	public void inputPlusMinus(String newNumber, CalculatorFace face) {
+		plusminus.input(this, newNumber, face);
+	}
+	public void setPlusMinusState(PlusMinusStates plusminus) {
+		this.plusminus = plusminus;
+	}
+	public void setDecimalState(DecimalStates decimalState) {
+		this.decimalState = decimalState;
+	}
+	public void inputDecimal(CalculatorFace face) {
+		decimalState.input(this, face);
+	}
+	public void setState(EqualStates state) {
 		this.state = state;
 	}
 	public String getScreen() {
@@ -39,6 +52,9 @@ public class CalcStorage {
 		currentDisplay = "";
 		val = 0.0;
 		op = new NoOperation();
+		state = new NormalState();
+		decimalState = new NoDecimalState();
+		plusminus = new Positive();
 	}
 	public void perform() {
 		val = op.operate(val, Double.parseDouble(currentDisplay));

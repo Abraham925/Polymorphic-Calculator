@@ -13,8 +13,7 @@ public class DecimalListener implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		storage.addToScreen(".");
-		face.writeToScreen(storage.getScreen());
+		storage.inputDecimal(face);
 
 	}
 }

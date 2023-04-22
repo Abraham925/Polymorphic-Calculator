@@ -13,10 +13,7 @@ public class PlusMinusListener implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		String currentScreen = storage.getScreen();
-		currentScreen = currentScreen.replaceFirst("^-", "").replaceFirst("^", "-");
-		
-		storage.setScreen(currentScreen);
-		face.writeToScreen(storage.getScreen());
+		storage.inputPlusMinus(storage.getScreen(), face);
+
 	}
 }
