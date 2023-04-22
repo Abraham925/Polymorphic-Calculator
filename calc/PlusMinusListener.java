@@ -13,9 +13,10 @@ public class PlusMinusListener implements ActionListener{
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		double currentValue = Double.parseDouble(storage.getScreen());
-		currentValue = -currentValue;
-		storage.setScreen(String.valueOf(currentValue));
-		//face.writeToScreen(storage.getScreen());
+		String currentScreen = storage.getScreen();
+		currentScreen = currentScreen.replaceFirst("^-", "").replaceFirst("^", "-");
+		
+		storage.setScreen(currentScreen);
+		face.writeToScreen(storage.getScreen());
 	}
 }
