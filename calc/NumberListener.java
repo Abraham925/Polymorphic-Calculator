@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  *
  * @author Abraham Austin
  * CS 245, Wheaton College
- * Feb 13, 2023
+ * Feb 21, 2023
 */
 
 public class NumberListener implements ActionListener {
@@ -25,9 +25,10 @@ public class NumberListener implements ActionListener {
 		this.storage = storage;
 
 	}
-	
+	/**
+	 * calls the numberListener
+	 */
 	public void actionPerformed(ActionEvent e) {
-		//face.writeToScreen(storage.getScreen() + String.valueOf(x));
 		storage.input(String.valueOf(x), face);
 
 	}
