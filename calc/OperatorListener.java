@@ -2,7 +2,11 @@ package calc;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+/**
+ * called when an Operator is pressed
+ * @author abrahamaustin
+ *
+ */
 public class OperatorListener implements ActionListener{
 
 	CalculatorFace face;
@@ -14,7 +18,9 @@ public class OperatorListener implements ActionListener{
 		this.operator = operator;
 		this.storage = storage;
 	}
-	@Override
+	/**
+	 * calls the functions and sets the value of the numbers before that
+	 */
 	public void actionPerformed(ActionEvent e) {
 		storage.perform();
 		storage.setVal(Double.valueOf(storage.getScreen()));
