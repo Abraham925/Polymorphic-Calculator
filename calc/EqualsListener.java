@@ -16,7 +16,6 @@ public class EqualsListener implements ActionListener{
 		storage.perform();
 		storage.setVal(Double.valueOf(storage.getScreen()));
 		face.writeToScreen(storage.getScreen());
-		//storage.setScreen(Double.valueOf(storage.getScreen()));
 		
 	}
 }
