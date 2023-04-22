@@ -27,8 +27,8 @@ public class NumberListener implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent e) {
-		face.writeToScreen(storage.getScreen() + String.valueOf(x));
-		storage.input(String.valueOf(x));
+		//face.writeToScreen(storage.getScreen() + String.valueOf(x));
+		storage.input(String.valueOf(x), face);
 
 	}
 

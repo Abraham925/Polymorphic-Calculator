@@ -47,7 +47,7 @@ public class CalcStorage {
 		op = new NoOperation();
 		state = new AfterEqualsState();
 	}
-	public void input(String newNumber) {
-		state.input(this, newNumber);
+	public void input(String newNumber, CalculatorFace face) {
+		state.input(this, newNumber, face);
 	}
 }
